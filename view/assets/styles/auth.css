@@ -20,7 +20,7 @@ body {
 
 /* BODY */
 body {
-    background-image: url("background-image.png");
+    background-image: url("../img/background-image.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
