@@ -15,6 +15,25 @@
         <h1 id="register-promoter-title">Registro de promotor</h1>
 
         <form action="../profiles/profile_promotor-view.html" method="post">
+
+            <label class="sr-only" for="promoter-name">Nombre</label>
+            <input id="promoter-name" name="name" class="btn-input input-name" type="text" placeholder="Nombre"
+                required minlength="2" maxlength="30">
+
+            <div class="error-box error-name">
+                <span class="icon">ⓘ</span>
+                <span>Introduce un nombre válido.</span>
+            </div>
+
+            <label class="sr-only" for="promoter-lastname">Apellido</label>
+            <input id="promoter-lastname" name="lastname" class="btn-input input-lastname" type="text" placeholder="Apellido"
+                required minlength="2" maxlength="30">
+
+            <div class="error-box error-lastname">
+                <span class="icon">ⓘ</span>
+                <span>Introduce un apellido válido.</span>
+            </div>
+
             <label class="sr-only" for="promoter-email">Correo electrónico</label>
             <input id="promoter-email" name="email" class="btn-input input-email" type="email" placeholder="Email" required>
 
@@ -24,7 +43,8 @@
             </div>
 
             <label class="sr-only" for="promoter-entity">Nombre del proyecto o editorial</label>
-            <input id="promoter-entity" name="entity" class="btn-input" type="text" placeholder="Proyecto / Editorial" required minlength="2" maxlength="50">
+            <input id="promoter-entity" name="entity" class="btn-input" type="text" placeholder="Proyecto / Editorial"
+                required minlength="2" maxlength="50">
 
             <label class="sr-only" for="promoter-password">Contraseña</label>
             <input id="promoter-password" class="btn-input input-password" type="password" name="password" placeholder="Contraseña"
