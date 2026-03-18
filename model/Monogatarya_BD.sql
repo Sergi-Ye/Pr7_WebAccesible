@@ -5,6 +5,9 @@ Jinnan Chen
 Eric Huang
 1/12/2025 
 Generamos una Base de datos de nuestro proyecto transversal
+
+18/03/2026 
+Actualizamos la base de datos con las tablas necesarias para el proyecto, incluyendo las relaciones entre ellas.
 */
 
 -- CREACION BD -- 
@@ -12,17 +15,17 @@ create database if not exists monogatarya;
 use monogatarya;
 
 -- Crear tabla Usuarios --
-create table if not exists Usuarios
+create table if not exists Users
 (
-    Correo varchar(50),
-    Rango varchar(10),
-    Nombre varchar(50),
-    Apellido varchar(50),
-    Contrasena varchar(100),
-    FotoPerfil longblob,
+    email varchar(50),
+    status boolean default false,
+    name varchar(50),
+    surname varchar(50),
+    password varchar(100),
+    profile_picture longblob,
 
     
-    constraint PK_Usuarios primary key (Correo)
+    constraint PK_Usuarios primary key (email)
 );
 
 -- Crear tabla Eventos --
@@ -33,7 +36,6 @@ create table if not exists Eventos
     Descripcion varchar(100),
     Fecha DATE,
     Lugar varchar(100),
-    Foto longblob,
 
     constraint PK_Eventos primary key (ID_Eventos)
 );
@@ -41,11 +43,11 @@ create table if not exists Eventos
 -- Crear tabla CrearVer (M-M Usuarios <-> Eventos) --
 create table if not exists CrearVer
 (
-    Correo varchar(10),
+    email varchar(50),
     ID_Eventos varchar(25),
 
-    constraint PK_CrearVer primary key (Correo, ID_Eventos),
-    constraint FK_CV_Usuarios foreign key (Correo) references Usuarios(Correo) on delete cascade,
+    constraint PK_CrearVer primary key (email, ID_Eventos),
+    constraint FK_CV_Usuarios foreign key (email) references Users(email) on delete cascade,
     constraint FK_CV_Eventos foreign key (ID_Eventos) references Eventos(ID_Eventos) on delete cascade
 );
 
@@ -56,11 +58,10 @@ create table if not exists Animes
     Nombre varchar(25),
     NumEpisodio int,
     Descripcion varchar(100),
-    Archivos longblob,
-    ID_User varchar(10),  -- FK --
+    ID_User varchar(50),  -- FK --
 
     constraint PK_Animes primary key (IDAnimes),
-    constraint FK_Usuarios_Animes foreign key (ID_User) references Usuarios(ID_User) on delete set null
+    constraint FK_Usuarios_Animes foreign key (ID_User) references Users(email) on delete set null
 );
 -- Crear tabla Episodios --
 create table if not exists Episodios
@@ -69,7 +70,6 @@ create table if not exists Episodios
     NombreAnime varchar(25),
     Titulo varchar(50),
     NumEpisodios int,
-    Archivos longblob,
     IDAnimes varchar(20), -- FK -- 
 
     constraint PK_Episodios primary key (IDEpisodios),
@@ -83,11 +83,10 @@ create table if not exists BD_Mangas
     Nombre varchar(25),
     Num_Capitulo int,
     Descripcion varchar(100),
-    Archivo longblob,
-    ID_User varchar(10), -- FK --
+    ID_User varchar(50), -- FK --
 
     constraint PK_Mangas primary key (ID_Mangas),
-    constraint FK_Usuarios_Mangas foreign key (ID_User) references Usuarios(ID_User) on delete set null
+    constraint FK_Usuarios_Mangas foreign key (ID_User) references Users(email) on delete set null
 );
 
 -- Crear tabla Capitulos --
@@ -98,7 +97,6 @@ create table if not exists Capitulos
     Titulo varchar(50),
     NumCapitulo int,
     NumPaginas int,
-    Archivos longblob,
     ID_Mangas varchar(20), -- FK --
 
     constraint PK_Capitulos primary key (ID_Capitulos),
