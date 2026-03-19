@@ -1,16 +1,16 @@
 <?php
-class Animes{
+class Animes {
     private $ID_Anime;
-    private $Nombre;
-    private $NumEpisodios;
-    private $Descripcion;
+    private $Name;
+    private $EpisodeCount;
+    private $Description;
     private $ID_User;
 
-    public function __construct($ID_Anime, $Nombre, $NumEpisodios, $Descripcion, $ID_User){
+    public function __construct($ID_Anime, $Name, $EpisodeCount, $Description, $ID_User){
         $this->ID_Anime = $ID_Anime;
-        $this->Nombre = $Nombre;
-        $this->NumEpisodios = $NumEpisodios;
-        $this->Descripcion = $Descripcion;
+        $this->Name = $Name;
+        $this->EpisodeCount = $EpisodeCount;
+        $this->Description = $Description;
         $this->ID_User = $ID_User;
     }
 
@@ -18,16 +18,16 @@ class Animes{
         return $this->ID_Anime;
     }
 
-    public function getNombre(){
-        return $this->Nombre;
+    public function getName(){
+        return $this->Name;
     }
 
-    public function getNumEpisodios(){
-        return $this->NumEpisodios;
+    public function getEpisodeCount(){
+        return $this->EpisodeCount;
     }
 
-    public function getDescripcion(){
-        return $this->Descripcion;
+    public function getDescription(){
+        return $this->Description;
     }
 
     public function getID_User(){
@@ -38,16 +38,16 @@ class Animes{
         $this->ID_Anime = $ID_Anime;
     }
 
-    public function setNombre($Nombre){
-        $this->Nombre = $Nombre;
+    public function setName($Name){
+        $this->Name = $Name;
     }
 
-    public function setNumEpisodios($NumEpisodios){
-        $this->NumEpisodios = $NumEpisodios;
+    public function setEpisodeCount($EpisodeCount){
+        $this->EpisodeCount = $EpisodeCount;
     }
 
-    public function setDescripcion($Descripcion){
-        $this->Descripcion = $Descripcion;
+    public function setDescription($Description){
+        $this->Description = $Description;
     }
 
     public function setID_User($ID_User){

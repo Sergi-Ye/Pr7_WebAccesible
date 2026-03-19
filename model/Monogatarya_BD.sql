@@ -3,101 +3,99 @@ Sergi Ye
 Akashdeep Singh
 Jinnan Chen
 Eric Huang
-1/12/2025 
-Generamos una Base de datos de nuestro proyecto transversal
+01/12/2025
+We generated a database for our transversal project
 
-18/03/2026 
-Actualizamos la base de datos con las tablas necesarias para el proyecto, incluyendo las relaciones entre ellas.
+18/03/2026
+We updated the database with the necessary tables for the project, including the relationships between them.
 */
 
--- CREACION BD -- 
-create database if not exists monogatarya;
-use monogatarya;
+USE sql7820250;
 
--- Crear tabla Usuarios --
-create table if not exists Users
+-- Create Users table --
+CREATE TABLE IF NOT EXISTS Users
 (
     email varchar(50) not null,
     promotor boolean default false,
     name varchar(50) not null,
     surname varchar(50) not null,
     password varchar(100) not null,
-    profile_picture longblob,
     
     constraint PK_Usuarios primary key (email)
 );
 
--- Crear tabla Eventos --
-create table if not exists Eventos
+-- Create Events table --
+CREATE TABLE IF NOT EXISTS Events
 (
-    ID_Eventos varchar(25),
-    Nombre varchar(50),
-    Descripcion varchar(100),
-    Fecha DATE,
-    Lugar varchar(100),
+    ID_Events VARCHAR(25),
+    Name VARCHAR(50),
+    Description VARCHAR(100),
+    Date DATE,
+    Location VARCHAR(100),
 
-    constraint PK_Eventos primary key (ID_Eventos)
+    CONSTRAINT PK_Events PRIMARY KEY (ID_Events)
 );
 
--- Crear tabla CrearVer (M-M Usuarios <-> Eventos) --
-create table if not exists CrearVer
+-- Create Catalogs table (M-M Users <-> Events) --
+CREATE TABLE IF NOT EXISTS Catalogs
 (
-    email varchar(50),
-    ID_Eventos varchar(25),
+    email VARCHAR(50),
+    ID_Events VARCHAR(25),
 
-    constraint PK_CrearVer primary key (email, ID_Eventos),
-    constraint FK_CV_Usuarios foreign key (email) references Users(email) on delete cascade,
-    constraint FK_CV_Eventos foreign key (ID_Eventos) references Eventos(ID_Eventos) on delete cascade
+    CONSTRAINT PK_Catalogs PRIMARY KEY (email, ID_Events),
+    CONSTRAINT FK_CV_Users FOREIGN KEY (email) REFERENCES Users(email) ON DELETE CASCADE,
+    CONSTRAINT FK_CV_Events FOREIGN KEY (ID_Events) REFERENCES Events(ID_Events) ON DELETE CASCADE
 );
 
--- Crear tabla Animes --
-create table if not exists Animes
+-- Create Animes table --
+CREATE TABLE IF NOT EXISTS Animes
 (
-    IDAnimes varchar(20),
-    Nombre varchar(25),
-    NumEpisodio int,
-    Descripcion varchar(100),
-    ID_User varchar(50),  -- FK --
+    IDAnimes VARCHAR(20),
+    Name VARCHAR(25),
+    EpisodeCount INT,
+    Description VARCHAR(100),
+    ID_User VARCHAR(50),  -- FK --
 
-    constraint PK_Animes primary key (IDAnimes),
-    constraint FK_Usuarios_Animes foreign key (ID_User) references Users(email) on delete set null
-);
--- Crear tabla Episodios --
-create table if not exists Episodios
-(
-    IDEpisodios varchar(25),
-    NombreAnime varchar(25),
-    Titulo varchar(50),
-    NumEpisodios int,
-    IDAnimes varchar(20), -- FK -- 
-
-    constraint PK_Episodios primary key (IDEpisodios),
-    constraint FK_Animes_Episodios foreign key (IDAnimes) references Animes(IDAnimes) on delete cascade
+    CONSTRAINT PK_Animes PRIMARY KEY (IDAnimes),
+    CONSTRAINT FK_Users_Animes FOREIGN KEY (ID_User) REFERENCES Users(email) ON DELETE SET NULL
 );
 
--- Crear tabla BD_Mangas --
-create table if not exists BD_Mangas
+-- Create Episodes table --
+CREATE TABLE IF NOT EXISTS Episodes
 (
-    ID_Mangas varchar(20),
-    Nombre varchar(25),
-    Num_Capitulo int,
-    Descripcion varchar(100),
-    ID_User varchar(50), -- FK --
+    IDEpisodes VARCHAR(25),
+    AnimeName VARCHAR(25),
+    Title VARCHAR(50),
+    EpisodeNumber INT,
+    IDAnimes VARCHAR(20), -- FK --
 
-    constraint PK_Mangas primary key (ID_Mangas),
-    constraint FK_Usuarios_Mangas foreign key (ID_User) references Users(email) on delete set null
+    CONSTRAINT PK_Episodes PRIMARY KEY (IDEpisodes),
+    CONSTRAINT FK_Animes_Episodes FOREIGN KEY (IDAnimes) REFERENCES Animes(IDAnimes) ON DELETE CASCADE
 );
 
--- Crear tabla Capitulos --
-create table if not exists Capitulos
+-- Create Mangas table --
+CREATE TABLE IF NOT EXISTS Mangas
 (
-    ID_Capitulos varchar(25),
-    NombreManga varchar(50),
-    Titulo varchar(50),
-    NumCapitulo int,
-    NumPaginas int,
-    ID_Mangas varchar(20), -- FK --
+    ID_Mangas VARCHAR(20),
+    Name VARCHAR(25),
+    ChapterNumber INT,
+    Description VARCHAR(100),
+    ID_User VARCHAR(50), -- FK --
 
-    constraint PK_Capitulos primary key (ID_Capitulos),
-    constraint FK_Mangas_Capitulos foreign key (ID_Mangas) references BD_Mangas(ID_Mangas) on delete cascade
+    CONSTRAINT PK_Mangas PRIMARY KEY (ID_Mangas),
+    CONSTRAINT FK_Users_Mangas FOREIGN KEY (ID_User) REFERENCES Users(email) ON DELETE SET NULL
+);
+
+-- Create Chapters table --
+CREATE TABLE IF NOT EXISTS Chapters
+(
+    ID_Chapters VARCHAR(25),
+    MangaName VARCHAR(50),
+    Title VARCHAR(50),
+    ChapterNumber INT,
+    PageCount INT,
+    ID_Mangas VARCHAR(20), -- FK --
+
+    CONSTRAINT PK_Chapters PRIMARY KEY (ID_Chapters),
+    CONSTRAINT FK_Mangas_Chapters FOREIGN KEY (ID_Mangas) REFERENCES BD_Mangas(ID_Mangas) ON DELETE CASCADE
 );

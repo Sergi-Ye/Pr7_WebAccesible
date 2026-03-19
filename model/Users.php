@@ -7,7 +7,6 @@ class Users
     private $surname;
     private $password;
 
-
     public function __construct($email, $name, $surname, $password, $status)
     {
         $this->email = $email;
