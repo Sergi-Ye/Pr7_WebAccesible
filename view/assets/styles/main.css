@@ -427,6 +427,54 @@ footer {
     text-align: center;
 }
 
+.site-footer {
+    margin-top: 2rem;
+    background: #181818;
+}
+
+.site-footer .container {
+    width: min(1100px, 92vw);
+}
+
+.site-footer .footer-links {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 0.75rem 1rem;
+    text-align: left;
+}
+
+.site-footer .footer-links li {
+    list-style: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+.site-footer .footer-links a,
+.site-footer .footer-links a:visited {
+    color: #e7e7e7 !important;
+    text-decoration: none !important;
+}
+
+.site-footer .footer-links a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.footer-legal {
+    margin: 1rem 0 0;
+    color: var(--muted);
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .site-footer .footer-links {
+        grid-template-columns: 1fr;
+    }
+}
+
 :where(a, button, input, textarea, select):focus-visible {
     outline: 3px solid var(--focus);
     outline-offset: 2px;
