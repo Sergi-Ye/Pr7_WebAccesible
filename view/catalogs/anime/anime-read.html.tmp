@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../main.css" />
     <link rel="stylesheet" href="catalogo.css" />
-    <title>Monogatarya - Catálogo de mangas</title>
+    <title>Monogatarya - Catálogo de mangas (Proximamente)</title>
 </head>
 
 <body>
@@ -234,7 +234,7 @@
     <ul class="menu-width">
         <li><a href="../../index/index.html">Página de inicio</a></li>
         <li><a href="animes.html">Catálogo de animes</a></li>
-        <li><a href="mangas.html">Catálogo de mangas</a></li>
+        <li><a href="mangas.html">Catálogo de mangas (Proximamente)</a></li>
         <li><a href="../event/m_event.html">Eventos</a></li>
         <li class="logout"><a href="../../../start/start.html">Cerrar sesión</a></li>
     </ul>
