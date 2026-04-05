@@ -3,13 +3,33 @@
     display: none;
 }
 
-#page1 {
+#manga1 {
     display: grid;
 }
 
 /* Mostrar solo la página activa */
 .pagina:target {
     display: grid;
+}
+
+.content-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    background: #1a1a1a;
+}
+
+.content-card .btn-link {
+    margin-top: auto;
 }
 
 /* Paginación */
