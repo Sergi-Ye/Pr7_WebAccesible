@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/styles/event.css" />
+    <link rel="stylesheet" href="../assets/styles/main.css" />
+    <title>Monogatarya - Crear Evento de Anime</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-gruop">
+            <label for="menu-toggle" class="icon-btn white" aria-label="Menú">
+                <svg class="icon">
+                    <use href="../assets/img/icon-sprites.svg#menu"></use>
+                </svg>
+            </label>
+            <img src="../assets/img/logo.webp" alt="Logo de la página">
+            <h1>MONOGATARYA</h1>
+            <div class="right-group">
+                <form action="" autocomplete="on" method="get">
+                    <div class="search">
+                        <button class="icon-btn red" aria-label="Buscar">
+                            <svg class="icon">
+                                <use href="../assets/img/icon-sprites.svg#buscar"></use>
+                            </svg>
+                        </button>
+
+                        <input class="search-input" type="search" name="busqueda" placeholder="Search" required
+                            minlength="2" maxlength="40">
+
+                        <button class="icon-btn red" aria-label="Micrófono">
+                            <svg class="icon">
+                                <use href="../assets/img/icon-sprites.svg#microfono"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+                <a href="../profiles/profile-view.html" class="icon-btn white user-link" aria-label="Ir al perfil de usuario">
+                    <svg class="icon">
+                        <use href="../assets/img/icon-sprites.svg#usuario"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="page-main">
+        <div class="layout-container">
+            <section class="card-panel" aria-labelledby="crear-evento-title">
+                <h2 id="crear-evento-title" class="section-title">Formulario de creación de evento de anime</h2>
+                <form class="form-vertical" action="event-detail.html" method="post">
+
+                    <div class="field-group">
+                        <label for="nombre-anime">Título del anime</label>
+                        <input id="nombre-anime" type="text" name="nombre" required minlength="3" maxlength="50">
+                    </div>
+                    <div class="field-group">
+                        <label for="fecha-estreno">Fecha de estreno</label>
+                        <input id="fecha-estreno" type="date" name="fecha_estreno" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="estudio-anime">Estudio / plataforma</label>
+                        <input id="estudio-anime" type="text" name="estudio" required minlength="3">
+                    </div>
+                    <div class="field-group">
+                        <label for="temporada-anime">Temporada</label>
+                        <input id="temporada-anime" type="number" name="temporada" min="1" required>
+                    </div>
+                    <div class="field-group">
+                        <label for="descripcion-evento">Sinopsis</label>
+                        <textarea id="descripcion-evento" name="descripcion" required minlength="10" maxlength="300"></textarea>
+                    </div>
+                    <div class="field-group">
+                        <label for="imagen">Portada del anime</label>
+                        <input id="imagen" type="file" name="imagen" accept="image/*" required>
+                    </div>
+                    <div class="inline-actions">
+                        <button type="submit" class="btn btn-add">Crear evento</button>
+                        <button type="reset" class="btn btn-delete">Cancelar</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <input type="checkbox" id="menu-toggle">
+
+    <ul class="menu-width">
+        <li><a href="../index.html">Página de inicio</a></li>
+        <li><a href="../catalogs/anime/anime-catalog.html">Catálogo de animes</a></li>
+        <li><a href="../catalogs/manga/manga-catalog.html">Catálogo de mangas (Proximamente)</a></li>
+        <li><a href="event-detail.html">Eventos</a></li>
+        <li class="logout"><a href="../home.html">Cerrar sesión</a></li>
+    </ul>
+
+    <footer>
+        <div class="container">© 2026 Monogatarya. Todos los derechos reservados.</div>
+    </footer>
+
+</body>
+
+</html>
