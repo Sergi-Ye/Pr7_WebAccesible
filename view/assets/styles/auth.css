@@ -239,38 +239,42 @@ form:has(.input-confirm:invalid:not(:placeholder-shown)) .error-confirm {
 
 .site-footer {
     margin-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.16);
-    padding-top: 1rem;
 }
 
 .site-footer .footer-links {
-    list-style: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 0.75rem 1rem;
-    text-align: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    text-align: center;
 }
 
 .site-footer .footer-links li {
-    list-style: none !important;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.site-footer .footer-links a,
+.site-footer .footer-links a {
+    color: #a0a0a0;
+    text-decoration: none;
+}
+
 .site-footer .footer-links a:visited {
-    color: #f2f2f2 !important;
-    text-decoration: none !important;
+    color: #a0a0a0;
 }
 
 .site-footer .footer-links a:hover {
     text-decoration: underline;
+    color: #d0d0d0;
 }
 
 .footer-legal {
-    margin: 1rem 0 0;
+    margin: 1.5rem 0;
     color: rgba(255, 255, 255, 0.7);
     text-align: center;
 }
