@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../assets/styles/event.css" />
-    <link rel="stylesheet" href="../assets/styles/main.css" />
-    <title>Monogatarya - Crear Evento</title>
+    <link rel="stylesheet" href="../../assets/styles/event.css" />
+    <link rel="stylesheet" href="../../assets/styles/main.css" />
+    <title>Monogatarya - Editar Evento de Anime</title>
 </head>
 
 <body>
@@ -14,17 +14,17 @@
         <div class="header-gruop">
             <label for="menu-toggle" class="icon-btn white" aria-label="Menú">
                 <svg class="icon">
-                    <use href="../assets/img/icon-sprites.svg#menu"></use>
+                    <use href="../../assets/img/icon-sprites.svg#menu"></use>
                 </svg>
             </label>
-            <img src="../assets/img/logo.webp" alt="Logo de la página">
+            <img src="../../assets/img/logo.webp" alt="Logo de la página">
             <h1>MONOGATARYA</h1>
             <div class="right-group">
                 <form action="" autocomplete="on" method="get">
                     <div class="search">
                         <button class="icon-btn red" aria-label="Buscar">
                             <svg class="icon">
-                                <use href="../assets/img/icon-sprites.svg#buscar"></use>
+                                <use href="../../assets/img/icon-sprites.svg#buscar"></use>
                             </svg>
                         </button>
 
@@ -33,14 +33,14 @@
 
                         <button class="icon-btn red" aria-label="Micrófono">
                             <svg class="icon">
-                                <use href="../assets/img/icon-sprites.svg#microfono"></use>
+                                <use href="../../assets/img/icon-sprites.svg#microfono"></use>
                             </svg>
                         </button>
                     </div>
                 </form>
-                <a href="../profiles/profile-view.html" class="icon-btn white user-link" aria-label="Ir al perfil de usuario">
+                <a href="../../profiles/profile-view.html" class="icon-btn white user-link" aria-label="Ir al perfil de usuario">
                     <svg class="icon">
-                        <use href="../assets/img/icon-sprites.svg#usuario"></use>
+                        <use href="../../assets/img/icon-sprites.svg#usuario"></use>
                     </svg>
                 </a>
             </div>
@@ -51,36 +51,36 @@
     <main class="page-main">
         <div class="layout-container">
             <section class="card-panel" aria-labelledby="crear-evento-title">
-                <h2 id="crear-evento-title" class="section-title">Formulario de gestión de evento</h2>
-                <form class="form-vertical" action="event-detail.html" method="post">
+                <h2 id="crear-evento-title" class="section-title">Editar evento de anime</h2>
+                <form class="form-vertical" action="../../events/event-detail.html" method="post">
 
                     <div class="field-group">
-                        <label for="nombre-evento">Título del evento</label>
-                        <input id="nombre-evento" type="text" name="nombre" required minlength="3" maxlength="50">
+                        <label for="nombre-anime">Título del anime</label>
+                        <input id="nombre-anime" type="text" name="nombre" required minlength="3" maxlength="50">
                     </div>
                     <div class="field-group">
-                        <label for="fecha-evento">Fecha</label>
-                        <input id="fecha-evento" type="date" name="fecha" required>
+                        <label for="fecha-estreno">Fecha de estreno</label>
+                        <input id="fecha-estreno" type="date" name="fecha" required>
                     </div>
                     <div class="field-group">
-                        <label for="lugar-evento">Lugar</label>
-                        <input id="lugar-evento" type="text" name="lugar" required minlength="3">
+                        <label for="estudio-anime">Estudio / plataforma</label>
+                        <input id="estudio-anime" type="text" name="lugar" required minlength="3">
                     </div>
                     <div class="field-group">
-                        <label for="aforo">Aforo</label>
-                        <input id="aforo" type="number" name="aforo" min="50" required>
+                        <label for="temporada-anime">Temporada</label>
+                        <input id="temporada-anime" type="number" name="aforo" min="1" required>
                     </div>
                     <div class="field-group">
-                        <label for="descripcion-evento">Descripción</label>
+                        <label for="descripcion-evento">Datos del anime</label>
                         <textarea id="descripcion-evento" name="descripcion" required minlength="10"
                             maxlength="300"></textarea>
                     </div>
                     <div class="field-group">
-                        <label for="imagen">Imagen del evento</label>
+                        <label for="imagen">Portada del anime</label>
                         <input id="imagen" type="file" name="imagen" accept="image/*" required>
                     </div>
                     <div class="inline-actions">
-                        <button type="submit" class="btn btn-add">Publicar evento</button>
+                        <button type="submit" class="btn btn-add">Guardar cambios</button>
                         <button type="reset" class="btn btn-delete">Cancelar</button>
                     </div>
                 </form>
@@ -91,11 +91,11 @@
     <input type="checkbox" id="menu-toggle">
 
     <ul class="menu-width">
-        <li><a href="../index.html">Página de inicio</a></li>
-        <li><a href="../catalogs/anime/anime-catalog.html">Catálogo de animes</a></li>
-        <li><a href="../catalogs/manga/manga-catalog.html">Catálogo de mangas (Proximamente)</a></li>
-        <li><a href="event-detail.html">Eventos</a></li>
-        <li class="logout"><a href="../home.html">Cerrar sesión</a></li>
+        <li><a href="../../index.html">Página de inicio</a></li>
+        <li><a href="anime-catalog.html">Catálogo de animes</a></li>
+        <li><a href="../manga/manga-catalog.html">Catálogo de mangas (Proximamente)</a></li>
+        <li><a href="../../events/event-detail.html">Eventos</a></li>
+        <li class="logout"><a href="../../home.html">Cerrar sesión</a></li>
     </ul>
 
     <footer>
